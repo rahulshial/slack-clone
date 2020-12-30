@@ -35,7 +35,7 @@ export default function ChatInput(props) {
         type='text'
         value={input}
         onChange={event => setInput(event.target.value)}
-        placeholder={`Message #${channelName.toLowerCase()}`}/>
+        placeholder={`Message #${channelName?.toLowerCase()}`}/>
         <Button type='submit' onClick={sendMessage}>Send</Button>
       </form>
     </div>

@@ -17,12 +17,14 @@ export default function Chat() {
       db.collection('rooms')
       .doc(roomId)
       .onSnapshot(snapshot => (setRoomDetails(snapshot.data())))
-    }
-    db.collection('rooms')
-    .doc(roomId)
-    .collection('messages')
-    .orderBy('timestamp', 'asc')
-    .onSnapshot(snapshot => setRoomMessages(snapshot.docs.map(doc => doc.data())));
+    };
+    if(roomId) {
+      db.collection('rooms')
+        .doc(roomId)
+        .collection('messages')
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => setRoomMessages(snapshot.docs.map(doc => doc.data())))
+      };
   }, [roomId]);
 
   return (
@@ -41,7 +43,7 @@ export default function Chat() {
         </div>
       </div>
       <div className='chat__messages'>
-        {roomMessages.map(message => (
+        {roomMessages && roomMessages.map(message => (
           <Message
           key={roomId}
           message={message.message}
