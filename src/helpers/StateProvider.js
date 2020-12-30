@@ -1,4 +1,3 @@
-import { red } from '@material-ui/core/colors';
 import React, { createContext, useContext, useReducer } from 'react';
 
 export const StateContext = createContext();

@@ -22,7 +22,7 @@ export default function Chat() {
     .doc(roomId)
     .collection('messages')
     .orderBy('timestamp', 'asc')
-    .onSnapshot(snapshot => setRoomMessages(snapshot.docs.map(doc => doc.data())))
+    .onSnapshot(snapshot => setRoomMessages(snapshot.docs.map(doc => doc.data())));
   }, [roomId]);
 
   return (
@@ -30,13 +30,13 @@ export default function Chat() {
       <div className='chat__header'>
         <div className='chat__headerLeft'>
           <h4 className='chat__channelName'>
-          <strong># {roomDetails?.name}</strong>
-          <StarBorderOutlinedIcon />
+            <strong># {roomDetails?.name}</strong>
+            <StarBorderOutlinedIcon />
           </h4>
         </div>
         <div className='chat__headerRight'>
           <p>
-            <InfoOutlinedIcon /> Details
+            <InfoOutlinedIcon> Details </InfoOutlinedIcon>
           </p>
         </div>
       </div>
